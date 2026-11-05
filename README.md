@@ -1,34 +1,52 @@
-# Cursor plugin template
+# Find Startup Jobs
 
-Build and publish Cursor Marketplace plugins from a single repo.
+Cursor plugin that will check a seeded list of European and remote-friendly tech startups for new jobs and rank them against your profile. This repository can hold more than one plugin. The only plugin right now is `plugins/find-startup-jobs`.
 
-Two starter plugins are included:
+## Add it to Cursor
 
-- **starter-simple**: rules and skills only
-- **starter-advanced**: rules, skills, agents, commands, hooks, MCP, and scripts
+Cursor loads local plugins from `~/.cursor/plugins/local/<plugin-name>/`, and that folder must contain `.cursor-plugin/plugin.json`. Copy the plugin directory, not the repository root. Cursor skips a symlink that points outside `~/.cursor/plugins/local`.
 
-## Getting started
+```bash
+mkdir -p ~/.cursor/plugins/local
+cp -R plugins/find-startup-jobs ~/.cursor/plugins/local/find-startup-jobs
+```
 
-[Use this template](https://github.com/cursor/plugin-template/generate) to create a new repository, then customize:
+Restart Cursor, or run **Developer: Reload Window** from the Command Palette. Open **Customize** and confirm **Find Startup Jobs** is listed.
 
-1. `.cursor-plugin/marketplace.json`: set marketplace `name`, `owner`, and `metadata`.
-2. `plugins/*/.cursor-plugin/plugin.json`: set `name` (lowercase kebab-case), `displayName`, `author`, `description`, `keywords`, `license`, and `version`.
-3. Replace placeholder rules, skills, agents, commands, hooks, scripts, and logos.
+After you change the plugin, copy the folder again and reload.
 
-To add more plugins, see `docs/add-a-plugin.md`.
+On Enterprise, an admin has to allow local plugin imports. The setting is **Allow Local Plugin Imports** under Dashboard → Settings → Security & Identity → Marketplace and Plugins.
 
-## Single plugin vs multi-plugin
+## Run it
 
-This template defaults to **multi-plugin** (multiple plugins in one repo).
+In Agent chat:
 
-For a **single plugin**, move your plugin folder contents to the repository root, keep one `.cursor-plugin/plugin.json`, and remove `.cursor-plugin/marketplace.json`.
+```text
+/find-startup-jobs
+```
 
-## Submission checklist
+To limit results to jobs posted on or after a date:
 
-- Each plugin has a valid `.cursor-plugin/plugin.json`.
-- Plugin names are unique, lowercase, and kebab-case.
-- `.cursor-plugin/marketplace.json` entries map to real plugin folders.
-- All frontmatter metadata is present in rule, skill, agent, and command files.
-- Logos are committed and referenced with relative paths.
-- `node scripts/validate-template.mjs` passes.
-- Repository link is ready for submission to the Cursor team (Slack or `kniparko@anysphere.com`).
+```text
+/find-startup-jobs 2026-10-20
+```
+
+The command is registered. The scan itself is not built yet, so a run only confirms the plugin is installed.
+
+## Develop the skill (this repo)
+
+While working in this repository, a project skill mirrors the plugin skill:
+
+`.cursor/skills/find-startup-jobs/SKILL.md` → `plugins/find-startup-jobs/skills/find-startup-jobs/SKILL.md`
+
+Edit that file (either path is the same content), then run `/find-startup-jobs` in Agent chat. You do not need to copy into `~/.cursor/plugins/local` for prompt changes. Reload the window if Cursor does not pick up edits.
+
+If you also installed the plugin under `~/.cursor/plugins/local`, remove or rename that copy while iterating here so only one `find-startup-jobs` skill is active.
+
+## Add another plugin
+
+See [docs/add-a-plugin.md](docs/add-a-plugin.md). Check the repo with:
+
+```bash
+node scripts/validate-template.mjs
+```

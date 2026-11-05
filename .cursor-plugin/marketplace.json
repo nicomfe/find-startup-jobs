@@ -1,23 +1,18 @@
 {
-  "name": "cursor-plugin-starters",
+  "name": "find-startup-jobs",
   "owner": {
-    "name": "Your Org",
-    "email": "plugins@example.com"
+    "name": "Nicolas",
+    "email": "nicofetter@gmail.com"
   },
   "metadata": {
-    "description": "Starter marketplace template for Cursor plugins",
+    "description": "Cursor plugins for finding startup jobs",
     "version": "0.1.0"
   },
   "plugins": [
     {
-      "name": "starter-simple",
-      "source": "./plugins/starter-simple",
-      "description": "Minimal plugin with rules and skills only"
-    },
-    {
-      "name": "starter-advanced",
-      "source": "./plugins/starter-advanced",
-      "description": "Full-featured plugin with rules, skills, agents, commands, hooks, and MCP"
+      "name": "find-startup-jobs",
+      "source": "./plugins/find-startup-jobs",
+      "description": "Rank new jobs at European and remote-friendly tech startups against your profile"
     }
   ]
 }

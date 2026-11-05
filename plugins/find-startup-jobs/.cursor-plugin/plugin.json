@@ -1,0 +1,12 @@
+{
+  "name": "find-startup-jobs",
+  "displayName": "Find Startup Jobs",
+  "version": "0.1.0",
+  "description": "Check a seeded list of European and remote-friendly tech startups for new jobs and rank them against your profile.",
+  "author": {
+    "name": "Nicolas",
+    "email": "nicofetter@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": ["jobs", "startups", "careers", "remote"]
+}

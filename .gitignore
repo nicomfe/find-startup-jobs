@@ -12,3 +12,6 @@
 *.log
 tmp/
 temp/
+
+# Local Cursor Skills
+.cursor/skills/
