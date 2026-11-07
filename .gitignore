@@ -15,3 +15,6 @@ temp/
 
 # Local Cursor Skills
 .cursor/skills/
+
+# Ignore user files
+me/
