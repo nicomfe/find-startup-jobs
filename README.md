@@ -33,6 +33,10 @@ To limit results to jobs posted on or after a date:
 
 The command is registered. The scan itself is not built yet, so a run only confirms the plugin is installed.
 
+## Your files (`me/`)
+
+`me/` holds files that belong to you. Put your CV in that folder. Output from a run is written there too. The directory is listed in `.gitignore`, so the CV and those output files stay on your machine.
+
 ## Develop the skill (this repo)
 
 While working in this repository, a project skill mirrors the plugin skill:
